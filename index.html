@@ -1,0 +1,58 @@
+<html>
+<head>
+    <link rel="stylesheet" href="external/bootstrap.min.css">
+
+    <script src="node_modules/dxf-parser/dist/dxf-parser.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    
+    <!-- Three.js -->
+    <script src="node_modules/three/build/three.min.js"></script>
+    
+    <script src="external/three-dxf.js"></script>
+</head>
+<body>
+<style>
+    body {background-color: darkslategray}
+    button {background-color: gray; padding: 10px; border: 1px solid black; transition: background-color 1s ease-out;}
+    button:hover {background-color: lightgray;}
+    #cad-view {
+        display: inline-block;
+        /*			border: 1px solid #666;*/
+    }
+    #cad-view > canvas {
+        border: 1px solid #666;
+        background-color: black;
+    }
+</style>
+
+
+<div class="container">
+   <center>
+       
+    <div id="cad-view">
+
+    </div>
+    <button>Start</button>
+       <button onclick="download()">Download</button>
+       <p id="state" style="color:red"></p>
+       <small>&copy; 2020 - <a href="https://pocket-inc.ml">Pocket, Inc</a>.</small>
+</center>
+</div>
+
+<script src="external/read.js"></script>
+</body>
+</html>
+<script>
+    function download() {
+        function dataUrl(data) {
+            return "data:image/dxf;charset=utf-8," + escape(data);
+        }
+        var downloadLink = document.createElement("a");
+        downloadLink.href = dataUrl(output);
+        downloadLink.download = 'output.dxf';
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
+</script>
