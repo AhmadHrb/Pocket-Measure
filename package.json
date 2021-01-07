@@ -1,13 +1,14 @@
 {
-  "name": "pocketmeasure",
+  "name": "pocket-measure",
   "version": "1.0.0",
-  "description": "",
+  "description": "Auto measure distance and create dxf file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "beefy",
+    "write": "node write.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Pocket, Inc.",
+  "license": "MIT",
   "dependencies": {
     "cli-interact": "^0.1.9",
     "dxf-parser": "^1.0.0-alpha.2",
